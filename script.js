@@ -1,140 +1,313 @@
-// ===== SOLARIUM ECO - SCRIPT COMPLETO E CORRIGIDO COM MODAL DETALHADO =====
+// ===== SOLARIUM ECO - SCRIPT COMPLETO E REFACTORIZADO PARA SPA (ABAS/SEÇÕES) =====
 
 const CONFIG = {
-    animationDuration: 500,
-    galleryItemsPerView: 3,
-    galleryItemsPerViewMobile: 1,
-    galleryItemsPerViewTablet: 2,
+    animationDuration: 300, // Duração das transições em ms
     breakpoints: {
-        mobile: 768,
-        tablet: 1024
-    }
+        mobile: 768, // Ponto de quebra para dispositivos móveis
+        tablet: 1024 // Ponto de quebra para tablets
+    },
+    // Lista de IDs das suas seções de conteúdo principais e sub-soluções
+    contentSections: [
+        'inicio', 'galeria', 'solucoes', 'comerciais', 'residenciais', 'industriais', 
+        'saiba-mais', 'quem-somos', 'contato'
+    ]
 };
 
 const AppState = {
-    currentSection: 'inicio',
+    currentActiveSection: 'inicio', // ID da seção atualmente visível
+    isMobile: false, // Estado para detectar se é mobile
+    isTablet: false, // Estado para detectar se é tablet
     galleryCurrentIndex: 0,
     galleryTotalItems: 0,
-    modalCurrentSlide: 0,
-    isMobile: false,
-    isTablet: false
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    detectDevice();
-    initNavigation();
-    initGallery();
-    initModal();
-    initForm();
-    initScrollAnimations();
-    initMobileMenu(); 
+// --- Funções Auxiliares de Estado ---
 
-    window.addEventListener('resize', () => {
-        detectDevice();
-        updateGalleryLayout();
-    });
-});
-
+// Detecta se o dispositivo é mobile ou tablet
 function detectDevice() {
     const width = window.innerWidth;
     AppState.isMobile = width < CONFIG.breakpoints.mobile;
     AppState.isTablet = width >= CONFIG.breakpoints.mobile && width < CONFIG.breakpoints.tablet;
+    // Opcional: Adicionar classes ao body para estilos responsivos baseados em JS
     document.body.classList.toggle('is-mobile', AppState.isMobile);
     document.body.classList.toggle('is-tablet', AppState.isTablet);
 }
 
+// --- Funções do Menu Mobile ---
+
+// Abre o painel e overlay do menu mobile
+function openMobileMenu() {
+    const mobileMenuPanel = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    if (mobileMenuPanel && mobileMenuOverlay) {
+        mobileMenuOverlay.classList.remove('hidden', 'opacity-0');
+        mobileMenuPanel.classList.remove('hidden', 'translate-x-full');
+        
+        // Força reflow para garantir que as transições CSS funcionem corretamente
+        void mobileMenuPanel.offsetWidth; 
+
+        // Bloqueia a rolagem do corpo e do HTML
+        document.body.classList.add('no-scroll');
+        document.documentElement.classList.add('no-scroll');
+    }
+}
+
+// Fecha o painel e overlay do menu mobile
+function closeMobileMenu() {
+    const mobileMenuPanel = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+
+    if (mobileMenuPanel && mobileMenuOverlay) {
+        mobileMenuOverlay.classList.add('opacity-0');
+        mobileMenuPanel.classList.add('translate-x-full');
+        
+        // Remove as classes hidden e reabilita a rolagem após a transição
+        setTimeout(() => {
+            mobileMenuOverlay.classList.add('hidden');
+            mobileMenuPanel.classList.add('hidden');
+            document.body.classList.remove('no-scroll');
+            document.documentElement.classList.remove('no-scroll');
+        }, CONFIG.animationDuration); // Espera a transição CSS terminar
+
+        // Fecha o submenu de soluções no mobile, se estiver aberto (para a tag <details>)
+        const solutionsDetails = document.getElementById('solutions-mobile-details'); 
+        if (solutionsDetails && solutionsDetails.open) {
+            solutionsDetails.open = false;
+        }
+    }
+}
+
+// Inicializa os event listeners para os botões e overlay do menu mobile
+function initMobileMenuEvents() {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const menuCloseBtn = document.getElementById('mobile-menu-close');
+    const menuOverlay = document.getElementById('mobile-menu-overlay');
+
+    if (menuBtn) menuBtn.addEventListener('click', openMobileMenu);
+    if (menuCloseBtn) menuCloseBtn.addEventListener('click', closeMobileMenu);
+    if (menuOverlay) menuOverlay.addEventListener('click', closeMobileMenu); 
+
+    // Fechar o menu mobile ao clicar em qualquer link DENTRO do menu
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Fechar o menu mobile se redimensionar para desktop enquanto ele estiver aberto
+    window.addEventListener('resize', () => {
+        const mobileMenuPanel = document.getElementById('mobile-menu'); // Re-obter para garantir que não seja null
+        if (!AppState.isMobile && mobileMenuPanel && !mobileMenuPanel.classList.contains('translate-x-full')) {
+            closeMobileMenu();
+        }
+    });
+}
+
+// --- Funções de Navegação SPA ---
+
+// Esconde todas as seções de conteúdo e mostra a alvo
+function showSection(targetSectionId) {
+    // Itera por todas as seções definidas no CONFIG
+    CONFIG.contentSections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            if (sectionId === targetSectionId) {
+                section.classList.remove('hidden'); // Exibe a seção alvo
+                section.classList.add('active'); // Adiciona classe 'active' para estilos (se houver)
+            } else {
+                section.classList.add('hidden'); // Esconde as outras seções
+                section.classList.remove('active'); // Remove classe 'active'
+            }
+        }
+    });
+    AppState.currentActiveSection = targetSectionId; // Atualiza o estado da aplicação
+    
+    // Atualiza a URL no navegador sem recarregar a página (para permitir o uso do botão Voltar/Avançar)
+    history.pushState({}, '', `#${targetSectionId}`);
+
+    // Rola para o topo da janela ao mudar de seção (boa prática em SPAs para focar no novo conteúdo)
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Atualiza o link ativo no menu (desktop e mobile)
+    document.querySelectorAll('.nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${targetSectionId}`) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+
+    // Chamadas de funções específicas para cada seção (se necessário)
+    if (targetSectionId === 'galeria') updateGalleryLayout();
+    if (targetSectionId === 'contato') focusFirstFormField();
+}
+
+// Inicializa a navegação para todos os links com a classe 'nav-link'
 function initNavigation() {
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-link'); 
 
     navLinks.forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            const href = link.getAttribute('href');
-            if (href.startsWith('#')) {
-                const sectionId = href.substring(1);
-                navigateToSection(sectionId);
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Lógica para o menu "Soluções" no desktop: previne o comportamento padrão
+            if (href === '#solucoes' && !AppState.isMobile) {
+                e.preventDefault(); 
+                return; 
+            }
+
+            // Só processa links que começam com '#' (links de seção)
+            if (href && href.startsWith('#')) {
+                e.preventDefault(); 
+                
+                const targetId = href.substring(1); 
+
+                if (CONFIG.contentSections.includes(targetId)) {
+                    showSection(targetId); 
+                } else {
+                    console.warn(`Navegação SPA: ID "${targetId}" não encontrado ou não está na lista de seções de conteúdo.`);
+                }
             }
         });
     });
 
     const initialSection = window.location.hash ? window.location.hash.substring(1) : 'inicio';
-    navigateToSection(initialSection);
+    showSection(initialSection); 
+
+    window.addEventListener('popstate', () => {
+        const sectionFromUrl = window.location.hash ? window.location.hash.substring(1) : 'inicio';
+        if (CONFIG.contentSections.includes(sectionFromUrl) && sectionFromUrl !== AppState.currentActiveSection) {
+            showSection(sectionFromUrl);
+        }
+    });
 }
 
-function navigateToSection(sectionId) {
-    const target = document.getElementById(sectionId);
-    if (!target) return;
+function initDesktopSolutionsSubmenu() {
+    const solutionsParentLi = document.querySelector('nav ul li.group'); 
+    const solutionsSubmenu = document.getElementById('solutions-submenu'); 
 
-    document.querySelectorAll('.page-section').forEach(section => {
-        section.classList.remove('active');
-        section.classList.add('hidden');
+    if (!solutionsParentLi || !solutionsSubmenu) return;
+
+    solutionsParentLi.addEventListener('mouseenter', () => {
+        if (!AppState.isMobile) { 
+            solutionsSubmenu.classList.remove('hidden');
+        }
     });
 
-    target.classList.remove('hidden');
-    target.classList.add('active');
+    solutionsParentLi.addEventListener('mouseleave', () => {
+        if (!AppState.isMobile) { 
+            solutionsSubmenu.classList.add('hidden');
+        }
+    });
 
-    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-    const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-    if (activeLink) activeLink.classList.add('active');
-
-    history.pushState({}, '', `#${sectionId}`);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    if (sectionId === 'galeria') updateGalleryLayout();
-    if (sectionId === 'contato') focusFirstFormField();
+    window.addEventListener('resize', () => {
+        if (AppState.isMobile) {
+            solutionsSubmenu.classList.add('hidden');
+        }
+    });
 }
+
+
+// --- Funções de Módulos (Re-integradas e Ajustadas) ---
 
 function initGallery() {
-    const track = document.getElementById('gallery-track');
-    const items = document.querySelectorAll('.gallery-item');
-    const prev = document.querySelector('.gallery-prev');
-    const next = document.querySelector('.gallery-next');
+    const galleryContainer = document.getElementById('gallery-track');
+    const prevButton = document.getElementById('gallery-prev');
+    const nextButton = document.getElementById('gallery-next');
+    const galleryItems = document.querySelectorAll('.gallery-item');
 
-    if (!track || items.length === 0) return;
-    AppState.galleryTotalItems = items.length;
+    if (!galleryContainer || galleryItems.length === 0) return;
 
-    prev?.addEventListener('click', () => moveGallery('prev'));
-    next?.addEventListener('click', () => moveGallery('next'));
+    AppState.galleryTotalItems = galleryItems.length;
 
-    items.forEach((item, i) => {
-        item.addEventListener('click', () => openModal(i));
+    const getItemsPerView = () => {
+        if (AppState.isMobile) return 1;
+        if (AppState.isTablet) return 2; 
+        return 3;
+    };
+
+    const updateGalleryPosition = () => {
+        const itemsPerView = getItemsPerView();
+        
+        // Garante que o índice não exceda os limites, permitindo parar nas extremidades
+        AppState.galleryCurrentIndex = Math.max(0, Math.min(AppState.galleryCurrentIndex, AppState.galleryTotalItems - itemsPerView));
+        
+        // --- NOVO: Calcula a translação em porcentagem para maior precisão ---
+        let slidePercentage = 0;
+        if (AppState.isMobile) {
+            slidePercentage = 100; // 1 item por vez
+        } else if (AppState.isTablet) {
+            slidePercentage = 100 / 2; // 2 itens por vez
+        } else { // Desktop
+            slidePercentage = 100 / 3; // 3 itens por vez
+        }
+        const transformValue = `translateX(${-AppState.galleryCurrentIndex * slidePercentage}%)`;
+        
+        galleryContainer.style.transform = transformValue;
+        
+        // --- Usa o atributo 'disabled' para controlar a visibilidade dos botões ---
+        if (prevButton) {
+            prevButton.disabled = AppState.galleryCurrentIndex === 0;
+        }
+        if (nextButton) {
+            nextButton.disabled = AppState.galleryCurrentIndex >= AppState.galleryTotalItems - itemsPerView;
+        }
+    };
+
+    const navigateGallery = (direction) => {
+        let newIndex = AppState.galleryCurrentIndex + direction;
+
+        // Limita o newIndex para não ir além das extremidades
+        const itemsPerView = getItemsPerView();
+        newIndex = Math.max(0, Math.min(newIndex, AppState.galleryTotalItems - itemsPerView));
+        
+        // Se já estiver na extremidade e tentar ir além, não faz nada
+        if (newIndex === AppState.galleryCurrentIndex) {
+            return; 
+        }
+
+        AppState.galleryCurrentIndex = newIndex;
+        updateGalleryPosition();
+    };
+
+    // Remove event listeners antigos se existirem para evitar duplicação (boa prática)
+    if (prevButton) prevButton.removeEventListener('click', () => navigateGallery(-1));
+    if (nextButton) nextButton.removeEventListener('click', () => navigateGallery(1));
+
+    if (prevButton) prevButton.addEventListener('click', () => navigateGallery(-1));
+    if (nextButton) nextButton.addEventListener('click', () => navigateGallery(1));
+
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => openModal(index));
     });
 
-    updateGalleryLayout();
-}
-
-function getItemsPerView() {
-    if (AppState.isMobile) return CONFIG.galleryItemsPerViewMobile;
-    if (AppState.isTablet) return CONFIG.galleryItemsPerViewTablet;
-    return CONFIG.galleryItemsPerView;
-}
-
-function moveGallery(dir) {
-    const itemsPerView = getItemsPerView();
-    const max = Math.max(0, AppState.galleryTotalItems - itemsPerView);
-    AppState.galleryCurrentIndex = Math.max(0, Math.min(AppState.galleryCurrentIndex + (dir === 'next' ? 1 : -1), max));
-    updateGalleryLayout();
+    updateGalleryPosition(); // Chamar inicialmente para definir a posição e estado dos botões
 }
 
 function updateGalleryLayout() {
-    const track = document.getElementById('gallery-track');
-    if (!track) return;
-    const itemsPerView = getItemsPerView();
-    const translateX = -(AppState.galleryCurrentIndex * (100 / itemsPerView));
-    track.style.transform = `translateX(${translateX}%)`;
+    initGallery(); // Recalcula e atualiza o layout da galeria (para redimensionamento, etc.)
 }
 
 function initModal() {
     const modal = document.getElementById('gallery-modal');
-    const close = document.getElementById('modal-close');
-    close?.addEventListener('click', closeModal);
-    modal?.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    const closeButton = document.getElementById('modal-close');
+
+    if (!modal) return;
+
+    if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
+    }
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
 }
 
 function openModal(index) {
     const modal = document.getElementById('gallery-modal');
-    const content = document.getElementById('modal-content');
-    if (!modal || !content) return;
+    const modalContent = document.getElementById('modal-content');
+    if (!modal || !modalContent) return;
 
     const projetos = [
         {
@@ -151,12 +324,27 @@ function openModal(index) {
             titulo: 'Sítio Santa Luzia',
             descricao: 'Energia solar em zona rural, com baterias para autonomia total.',
             imagem: 'imagens/projeto3.jpg'
-        }
+        },
+        {
+            titulo: 'Projeto 4',
+            descricao: 'Descrição do projeto 4.',
+            imagem: 'imagens/projeto4.jpg'
+        },
+        {
+            titulo: 'Projeto 5',
+            descricao: 'Descrição do projeto 5.',
+            imagem: 'imagens/projeto5.jpg'
+        },
+        {
+            titulo: 'Projeto 6',
+            descricao: 'Descrição do projeto 6.',
+            imagem: 'imagens/projeto6.jpg'
+        },
     ];
 
-    const projeto = projetos[index % projetos.length];
+    const projeto = projetos[index % projetos.length]; 
 
-    content.innerHTML = `
+    modalContent.innerHTML = `
         <div class='p-6 text-gray-800'>
             <img src='${projeto.imagem}' alt='${projeto.titulo}' class='w-full h-auto mb-4 rounded'>
             <h2 class='text-2xl font-bold mb-2'>${projeto.titulo}</h2>
@@ -170,74 +358,56 @@ function openModal(index) {
     `;
 
     modal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('no-scroll');
+    document.documentElement.classList.add('no-scroll'); 
 }
 
 function closeModal() {
     const modal = document.getElementById('gallery-modal');
     if (modal) {
         modal.classList.add('hidden');
-        document.body.style.overflow = '';
+        document.body.classList.remove('no-scroll');
+        document.documentElement.classList.remove('no-scroll');
     }
 }
 
 function initForm() {
-    const form = document.getElementById('contact-form');
+    const form = document.getElementById('contact-form'); 
     if (!form) return;
     form.addEventListener('submit', e => {
         e.preventDefault();
-        alert('Mensagem enviada com sucesso!');
+        alert('Mensagem enviada com sucesso! Em breve entraremos em contato.');
         form.reset();
     });
 }
 
 function focusFirstFormField() {
-    const input = document.querySelector('#contato input');
+    const input = document.querySelector('#contato input'); 
     if (input) setTimeout(() => input.focus(), 300);
 }
 
 function initScrollAnimations() {
-    // Scroll animation opcional
+    // Seu código de animações de scroll aqui, se houver.
 }
 
-function initMobileMenu() {
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const menuCloseBtn = document.getElementById('mobile-menu-close');
-  const menuOverlay = document.getElementById('mobile-menu-overlay');
-  const mobileMenu = document.getElementById('mobile-menu');
+// === Evento Principal de Carregamento do DOM ===
+document.addEventListener('DOMContentLoaded', () => {
+    detectDevice(); 
+    initNavigation(); 
+    initMobileMenuEvents(); 
+    initDesktopSolutionsSubmenu(); 
+    initGallery(); 
+    initModal(); 
+    initForm(); 
+    initScrollAnimations(); 
 
-  if (!menuBtn || !mobileMenu) return;
+    const currentYearSpan = document.getElementById('current-year');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
 
-  // Abrir menu
-  menuBtn.addEventListener('click', () => {
-    menuOverlay.classList.remove('hidden');
-    mobileMenu.classList.remove('hidden');
-    
-    // Forçar reflow para garantir que as animações funcionem
-    void mobileMenu.offsetWidth;
-    
-    menuOverlay.classList.remove('opacity-0');
-    mobileMenu.classList.remove('translate-x-full');
-    document.body.classList.add('no-scroll'); // ALTERADO: Adiciona a classe
-  });
-
- // Fechar menu
-  const closeMenu = () => {
-    menuOverlay.classList.add('opacity-0');
-    mobileMenu.classList.add('translate-x-full');
-    
-    setTimeout(() => {
-      menuOverlay.classList.add('hidden');
-      mobileMenu.classList.add('hidden');
-      document.body.classList.remove('no-scroll'); // NOVA LINHA: Remove a classe
-    }, 300);
-  };
-
-  if (menuCloseBtn) menuCloseBtn.addEventListener('click', closeMenu);
-  if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
-
-  // Fechar menu ao clicar em links
-  document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-}
+    window.addEventListener('resize', () => {
+        detectDevice();
+        updateGalleryLayout();
+    });
+});
