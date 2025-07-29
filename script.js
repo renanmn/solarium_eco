@@ -517,20 +517,20 @@ function createProjectCard(project) {
     const card = document.createElement('div');
     card.className = 'project-card group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl';
     card.innerHTML = `
-        <img src="${project.imagem_principal}" alt="${project.titulo}" 
-             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" 
-             loading="lazy">
-        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-6">
-            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                <h3 class="text-white text-xl font-bold">${project.titulo}</h3>
-                <p class="text-solarium-light">${project.descricao_curta}</p>
-                <button class="mt-2 px-4 py-2 bg-yellow-400 text-gray-900 rounded-full font-medium hover:bg-yellow-300 transition-colors" 
-                        data-project-id="${project.id}">
-                    Ver Detalhes
-                </button>
-            </div>
+    <img src="${project.imagem_principal}" alt="${project.titulo}" 
+         class="w-full h-full object-cover" loading="lazy">
+    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-100 transition-opacity duration-300 flex items-end p-6">
+        <div>
+            <h3 class="text-white text-xl font-bold">${project.titulo}</h3>
+            <p class="text-solarium-light">${project.descricao_curta}</p>
+            <button class="mt-2 px-4 py-2 bg-yellow-400 text-gray-900 rounded-full font-medium hover:bg-yellow-300 transition-colors" 
+                    data-project-id="${project.id}">
+                Ver Detalhes
+            </button>
         </div>
-    `;
+    </div>
+`;
+
     
     // Evento para abrir modal
     card.querySelector('button').addEventListener('click', () => openModal(project));
