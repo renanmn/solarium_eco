@@ -592,3 +592,93 @@ header {
 body.no-scroll, html.no-scroll {
     overflow: hidden !important;
 }
+/* === GALERIA DE PROJETOS === */
+
+/* Filtros */
+.filter-btn {
+    @apply px-4 py-2 rounded-full text-sm font-medium transition-colors;
+}
+
+.filter-btn.active {
+    @apply bg-solarium-green text-white;
+}
+
+.filter-btn:not(.active) {
+    @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+}
+
+/* Cards de projeto */
+.project-card {
+    aspect-ratio: 4/3;
+}
+
+.project-card img {
+    transition: transform 0.5s ease;
+}
+
+/* Modal */
+.modal-overlay {
+    transition: opacity 0.3s ease;
+}
+
+.modal-container {
+    transition: all 0.3s ease;
+}
+
+/* Carrossel no modal */
+.carousel-item {
+    display: none;
+}
+
+.carousel-item.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Skeleton loading */
+.skeleton-card {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+
+/* Estilo base para os botões de filtro */
+.filter-btn {
+    @apply px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300;
+    border: 2px solid transparent;
+    min-width: 100px;
+    text-align: center;
+    margin-top: 1rem
+}
+
+/* Botão ativo */
+.filter-btn.active {
+    @apply bg-solarium-green text-white border-solarium-green;
+    box-shadow: 0 2px 5px rgba(73, 122, 48, 0.3);
+}
+
+/* Botões inativos */
+.filter-btn:not(.active) {
+    @apply bg-white text-gray-700 border-gray-300 hover:bg-gray-50 hover:border-solarium-light;
+}
+
+/* Efeito hover para todos os botões */
+.filter-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Foco visível para acessibilidade */
+.filter-btn:focus {
+    outline: none;
+    @apply ring-2 ring-solarium-light ring-opacity-50;
+}

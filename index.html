@@ -165,87 +165,48 @@
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nossos Projetos</h2>
-                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Conheça alguns dos projetos que já realizamos e veja o resultado da nossa expertise</p>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Conheça alguns dos projetos que já realizamos</p>
+                    
+                    <!-- Filtros -->
+                    <div class="flex justify-center space-x-2 mb-8">
+                        <button class="filter-btn active" data-filter="all">Todos</button>
+                        <button class="filter-btn" data-filter="residencial">Residencial</button>
+                        <button class="filter-btn" data-filter="comercial">Comercial</button>
+                        <button class="filter-btn" data-filter="industrial">Industrial</button>
+                    </div>
                 </div>
 
-                <div class="relative max-w-6xl mx-auto">
-                    <div class="gallery-slider overflow-hidden">
-                        <div class="gallery-track flex transition-transform duration-500" id="gallery-track">
-                            <div class="gallery-item flex-shrink-0 w-full md:w-1/3 px-4" data-project="1">
-                                <div class="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300">
-                                    <div class="h-48 bg-gradient-to-br from-solarium-light to-solarium-green flex items-center justify-center">
-                                        <i class="fas fa-solar-panel text-white text-4xl"></i>
-                                    </div>
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-bold text-gray-800 mb-2">Residência São José</h3>
-                                        <p class="text-gray-600 mb-4">Sistema residencial 5kWp - Economia de 90% na conta de energia</p>
-                                        <div class="flex justify-between items-center text-sm text-gray-500">
-                                            <span>Potência: 5kWp</span>
-                                            <span>Tipo: Residencial</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <!-- Grid de Projetos -->
+                <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Os projetos serão carregados dinamicamente aqui via JavaScript -->
+                    <div class="skeleton-card h-64 rounded-xl bg-gray-200 animate-pulse"></div>
+                    <div class="skeleton-card h-64 rounded-xl bg-gray-200 animate-pulse"></div>
+                    <div class="skeleton-card h-64 rounded-xl bg-gray-200 animate-pulse"></div>
+                    <div class="skeleton-card h-64 rounded-xl bg-gray-200 animate-pulse"></div>
+                </div>
 
-                            <div class="gallery-item flex-shrink-0 w-full md:w-1/3 px-4" data-project="2">
-                                <div class="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300">
-                                    <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                                        <i class="fas fa-building text-white text-4xl"></i>
-                                    </div>
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-bold text-gray-800 mb-2">Empresa TechCorp</h3>
-                                        <p class="text-gray-600 mb-4">Sistema comercial 25kWp - ROI em 3 anos</p>
-                                        <div class="flex justify-between items-center text-sm text-gray-500">
-                                            <span>Potência: 25kWp</span>
-                                            <span>Tipo: Comercial</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="gallery-item flex-shrink-0 w-full md:w-1/3 px-4" data-project="3">
-                                <div class="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300">
-                                    <div class="h-48 bg-gradient-to-br from-orange-400 to-red-600 flex items-center justify-center">
-                                        <i class="fas fa-industry text-white text-4xl"></i>
-                                    </div>
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-bold text-gray-800 mb-2">Indústria MetalMax</h3>
-                                        <p class="text-gray-600 mb-4">Sistema industrial 100kWp - Sustentabilidade e economia</p>
-                                        <div class="flex justify-between items-center text-sm text-gray-500">
-                                            <span>Potência: 100kWp</span>
-                                            <span>Tipo: Industrial</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="gallery-item flex-shrink-0 w-full md:w-1/3 px-4" data-project="4">
-                                <div class="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300">
-                                    <div class="h-48 bg-gradient-to-br from-green-400 to-solarium-green flex items-center justify-center">
-                                        <i class="fas fa-home text-white text-4xl"></i>
-                                    </div>
-                                    <div class="p-6">
-                                        <h3 class="text-xl font-bold text-gray-800 mb-2">Condomínio Verde</h3>
-                                        <p class="text-gray-600 mb-4">Sistema residencial 8kWp - Energia para toda família</p>
-                                        <div class="flex justify-between items-center text-sm text-gray-500">
-                                            <span>Potência: 8kWp</span>
-                                            <span>Tipo: Residencial</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="gallery-btn gallery-prev absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full shadow-lg p-3 hover:bg-gray-50 transition-colors">
-                        <i class="fas fa-chevron-left text-solarium-green"></i>
-                    </button>
-                    <button class="gallery-btn gallery-next absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full shadow-lg p-3 hover:bg-gray-50 transition-colors">
-                        <i class="fas fa-chevron-right text-solarium-green"></i>
+                <!-- Botão Carregar Mais -->
+                <div class="text-center mt-8">
+                    <button id="load-more" class="btn-secondary bg-solarium-green text-white px-6 py-3 rounded-lg hover:bg-solarium-dark transition-colors">
+                        Carregar Mais
                     </button>
                 </div>
             </div>
         </section>
+
+        <!-- Modal da Galeria -->
+        <div id="project-modal" class="fixed inset-0 z-50 hidden">
+            <div class="modal-overlay absolute inset-0 bg-black bg-opacity-75"></div>
+            <div class="modal-container relative z-50 bg-white rounded-lg shadow-xl max-w-4xl mx-auto my-12 p-4">
+                <button id="modal-close" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+                
+                <div class="modal-content">
+                    <!-- Conteúdo será preenchido dinamicamente via JavaScript -->
+                </div>
+            </div>
+        </div>
 
         <section id="comerciais" class="page-section hidden min-h-screen py-20 bg-white">
             <div class="container mx-auto px-4">

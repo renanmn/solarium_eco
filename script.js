@@ -411,3 +411,242 @@ document.addEventListener('DOMContentLoaded', () => {
         updateGalleryLayout();
     });
 });
+
+// === GALERIA DE PROJETOS ===
+
+// Estado da galeria
+const GalleryState = {
+    currentFilter: 'all',
+    visibleProjects: 4,
+    projectsData: []
+};
+
+// Inicializa a galeria
+function initGallery() {
+    fetchProjects();
+    setupGalleryEvents();
+}
+
+// Busca os projetos do JSON
+function fetchProjects() {
+    fetch('data/projetos.json')
+        .then(response => response.json())
+        .then(data => {
+            GalleryState.projectsData = data.projetos;
+            renderProjects();
+        })
+        .catch(error => {
+            console.error('Erro ao carregar projetos:', error);
+            document.getElementById('projects-grid').innerHTML = `
+                <div class="col-span-full text-center py-12">
+                    <p class="text-red-500">Não foi possível carregar os projetos. Por favor, tente novamente mais tarde.</p>
+                </div>
+            `;
+        });
+}
+
+// Configura os eventos da galeria
+function setupGalleryEvents() {
+    // Filtros
+    document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            GalleryState.currentFilter = button.dataset.filter;
+            GalleryState.visibleProjects = 4;
+            renderProjects();
+        });
+    });
+    
+    // Carregar mais projetos
+    document.getElementById('load-more')?.addEventListener('click', () => {
+        GalleryState.visibleProjects += 4;
+        renderProjects();
+    });
+    
+    // Modal
+    document.getElementById('modal-close')?.addEventListener('click', closeModal);
+    document.querySelector('.modal-overlay')?.addEventListener('click', closeModal);
+}
+
+// Renderiza os projetos na tela
+function renderProjects() {
+    const projectsGrid = document.getElementById('projects-grid');
+    if (!projectsGrid) return;
+    
+    // Filtra os projetos
+    const filteredProjects = GalleryState.currentFilter === 'all' 
+        ? GalleryState.projectsData 
+        : GalleryState.projectsData.filter(project => 
+            project.tipo.toLowerCase() === GalleryState.currentFilter);
+    
+    const projectsToShow = filteredProjects.slice(0, GalleryState.visibleProjects);
+    
+    // Limpa o grid
+    projectsGrid.innerHTML = '';
+    
+    // Renderiza os projetos
+    if (projectsToShow.length === 0) {
+        projectsGrid.innerHTML = `
+            <div class="col-span-full text-center py-12">
+                <p>Nenhum projeto encontrado com este filtro.</p>
+            </div>
+        `;
+        document.getElementById('load-more').classList.add('hidden');
+    } else {
+        projectsToShow.forEach(project => {
+            const projectCard = createProjectCard(project);
+            projectsGrid.appendChild(projectCard);
+        });
+        
+        // Mostra/oculta botão "Carregar mais"
+        const loadMoreBtn = document.getElementById('load-more');
+        if (loadMoreBtn) {
+            if (filteredProjects.length > GalleryState.visibleProjects) {
+                loadMoreBtn.classList.remove('hidden');
+            } else {
+                loadMoreBtn.classList.add('hidden');
+            }
+        }
+    }
+}
+
+// Cria um card de projeto
+function createProjectCard(project) {
+    const card = document.createElement('div');
+    card.className = 'project-card group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl';
+    card.innerHTML = `
+        <img src="${project.imagem_principal}" alt="${project.titulo}" 
+             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" 
+             loading="lazy">
+        <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-end p-6">
+            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <h3 class="text-white text-xl font-bold">${project.titulo}</h3>
+                <p class="text-solarium-light">${project.descricao_curta}</p>
+                <button class="mt-2 px-4 py-2 bg-yellow-400 text-gray-900 rounded-full font-medium hover:bg-yellow-300 transition-colors" 
+                        data-project-id="${project.id}">
+                    Ver Detalhes
+                </button>
+            </div>
+        </div>
+    `;
+    
+    // Evento para abrir modal
+    card.querySelector('button').addEventListener('click', () => openModal(project));
+    
+    return card;
+}
+
+// Abre o modal com detalhes do projeto
+function openModal(project) {
+    const modalContent = document.querySelector('.modal-content');
+    if (!modalContent) return;
+    
+    modalContent.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="carousel relative">
+                <div class="carousel-inner relative overflow-hidden rounded-lg">
+                    <div class="carousel-item active">
+                        <img src="${project.imagem_principal}" alt="${project.titulo}" 
+                             class="w-full h-auto rounded-lg" loading="lazy">
+                    </div>
+                    ${project.imagens_adicionais.map(img => `
+                        <div class="carousel-item">
+                            <img src="${img}" alt="${project.titulo}" 
+                                 class="w-full h-auto rounded-lg" loading="lazy">
+                        </div>
+                    `).join('')}
+                </div>
+                <button class="carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 rounded-full p-2 shadow-md hover:bg-opacity-100 transition-all">
+                    <i class="fas fa-chevron-left text-solarium-green"></i>
+                </button>
+                <button class="carousel-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 rounded-full p-2 shadow-md hover:bg-opacity-100 transition-all">
+                    <i class="fas fa-chevron-right text-solarium-green"></i>
+                </button>
+            </div>
+            
+            <div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">${project.titulo}</h2>
+                <div class="prose text-gray-700 mb-6">${project.descricao_longa}</div>
+                
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div class="bg-solarium-light bg-opacity-20 p-3 rounded-lg">
+                        <p class="text-sm text-solarium-green">Potência</p>
+                        <p class="font-bold">${project.potencia}</p>
+                    </div>
+                    <div class="bg-solarium-light bg-opacity-20 p-3 rounded-lg">
+                        <p class="text-sm text-solarium-green">Tipo</p>
+                        <p class="font-bold">${project.tipo}</p>
+                    </div>
+                    <div class="bg-solarium-light bg-opacity-20 p-3 rounded-lg">
+                        <p class="text-sm text-solarium-green">Data</p>
+                        <p class="font-bold">${new Date(project.data).toLocaleDateString('pt-BR')}</p>
+                    </div>
+                </div>
+                
+                <h3 class="font-bold text-lg mb-2">Destaques</h3>
+                <ul class="space-y-2 mb-6">
+                    ${project.destaques.map(item => `
+                        <li class="flex items-center">
+                            <span class="text-yellow-400 mr-2">✓</span> ${item}
+                        </li>
+                    `).join('')}
+                </ul>
+                
+                <a href="${project.whatsapp_link}" 
+                   class="inline-flex items-center justify-center px-6 py-3 bg-green-500 text-white rounded-full font-medium hover:bg-green-600 transition-colors">
+                    <i class="fab fa-whatsapp text-xl mr-2"></i>
+                    Solicitar Orçamento
+                </a>
+            </div>
+        </div>
+    `;
+    
+    // Inicializa carrossel
+    initCarousel();
+    
+    // Mostra modal
+    document.getElementById('project-modal').classList.remove('hidden');
+    document.body.classList.add('no-scroll');
+}
+
+// Fecha o modal
+function closeModal() {
+    document.getElementById('project-modal').classList.add('hidden');
+    document.body.classList.remove('no-scroll');
+}
+
+// Controlador do carrossel no modal
+function initCarousel() {
+    const items = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    let currentIndex = 0;
+    
+    function showItem(index) {
+        items.forEach((item, i) => {
+            item.classList.toggle('active', i === index);
+        });
+    }
+    
+    prevBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        showItem(currentIndex);
+    });
+    
+    nextBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % items.length;
+        showItem(currentIndex);
+    });
+}
+
+// Adicione esta linha no final do evento DOMContentLoaded:
+document.addEventListener('DOMContentLoaded', () => {
+    // ... código existente ...
+    
+    // Inicializa a galeria
+    if (document.getElementById('galeria')) {
+        initGallery();
+    }
+});

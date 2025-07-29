@@ -1,0 +1,579 @@
+{
+  "projetos": [
+    {
+      "id": 1,
+      "imagem_principal": "assets/projetos/residencial-01.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/residencial-01-extra1.jpg",
+        "assets/projetos/residencial-01-extra2.jpg"
+      ],
+      "titulo": "Residência Alphaville",
+      "descricao_curta": "Sistema 7.5kWp com microinversores",
+      "descricao_longa": "<p>Instalação residencial de alto padrão em Alphaville com 15 painéis de 500W e sistema de microinversores para maior eficiência. Projeto inclui monitoramento remoto e integração com sistema de automação residencial.</p><p>Economia estimada de 95% na conta de energia.</p>",
+      "potencia": "7.5 kWp",
+      "tipo": "Residencial",
+      "data": "2023-11-15",
+      "destaques": [
+        "15 painéis de última geração",
+        "Microinversores para sombreamento",
+        "Integração com automação"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Residência%20Alphaville"
+    },
+    {
+      "id": 2,
+      "imagem_principal": "assets/projetos/comercial-01.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/comercial-01-extra1.jpg"
+      ],
+      "titulo": "Supermercado Verde",
+      "descricao_curta": "Sistema 25kWp para comércio",
+      "descricao_longa": "<p>Implantação de sistema fotovoltaico para rede de supermercados com alto consumo energético. Solução inclui 50 painéis de 500W e dois inversores de 12.5kW, cobrindo 60% do consumo total.</p>",
+      "potencia": "25 kWp",
+      "tipo": "Comercial",
+      "data": "2023-09-22",
+      "destaques": [
+        "Redução de R$8.000/mês",
+        "ROI em 4 anos",
+        "Sistema expansível"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Supermercado%20Verde"
+    },
+    {
+      "id": 3,
+      "imagem_principal": "assets/projetos/industrial-01.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/industrial-01-extra1.jpg",
+        "assets/projetos/industrial-01-extra2.jpg"
+      ],
+      "titulo": "Indústria Têxtil Solar",
+      "descricao_curta": "Sistema 150kWp industrial",
+      "descricao_longa": "<p>Projeto completo para indústria têxtil com consumo médio de 45.000 kWh/mês. Instalação de 300 painéis de 500W em estrutura metálica reforçada, com 6 inversores de 25kW cada.</p>",
+      "potencia": "150 kWp",
+      "tipo": "Industrial",
+      "data": "2023-07-10",
+      "destaques": [
+        "Economia de R$35.000/mês",
+        "Estrutura anti-corrosiva",
+        "Monitoramento remoto"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Indústria%20Têxtil%20Solar"
+    },
+    {
+      "id": 4,
+      "imagem_principal": "assets/projetos/residencial-02.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/residencial-02-extra1.jpg"
+      ],
+      "titulo": "Casa Sustentável SP",
+      "descricao_curta": "Sistema 5kWp com baterias",
+      "descricao_longa": "<p>Residência sustentável em São Paulo com sistema híbrido (on-grid + baterias). Composto por 10 painéis de 500W, inversor híbrido e banco de baterias para backup de 12h.</p>",
+      "potencia": "5 kWp",
+      "tipo": "Residencial",
+      "data": "2023-10-05",
+      "destaques": [
+        "Backup para quedas de energia",
+        "Autonomia de 12h",
+        "Integração com gerador"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Casa%20Sustentável%20SP"
+    },
+    {
+      "id": 5,
+      "imagem_principal": "assets/projetos/comercial-02.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/comercial-02-extra1.jpg",
+        "assets/projetos/comercial-02-extra2.jpg"
+      ],
+      "titulo": "Shopping Solar",
+      "descricao_curta": "Sistema 80kWp comercial",
+      "descricao_longa": "<p>Instalação em telhado de shopping center com 160 painéis de 500W. Sistema dimensionado para cobrir áreas comuns e parte das lojas âncoras.</p>",
+      "potencia": "80 kWp",
+      "tipo": "Comercial",
+      "data": "2023-08-18",
+      "destaques": [
+        "Redução de 40% no condomínio",
+        "Marketing sustentável",
+        "Manutenção programada"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Shopping%20Solar"
+    },
+    {
+      "id": 6,
+      "imagem_principal": "assets/projetos/industrial-02.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/industrial-02-extra1.jpg"
+      ],
+      "titulo": "Fábrica de Alimentos",
+      "descricao_curta": "Sistema 200kWp industrial",
+      "descricao_longa": "<p>Projeto para fábrica de alimentos com alto consumo energético. Sistema com 400 painéis de 500W em estrutura sobre estacionamento, gerando sombreamento adicional.</p>",
+      "potencia": "200 kWp",
+      "tipo": "Industrial",
+      "data": "2023-06-30",
+      "destaques": [
+        "Geração de 30.000 kWh/mês",
+        "Sombra para estacionamento",
+        "Projeto P&D"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Fábrica%20de%20Alimentos"
+    },
+    {
+      "id": 7,
+      "imagem_principal": "assets/projetos/residencial-03.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/residencial-03-extra1.jpg",
+        "assets/projetos/residencial-03-extra2.jpg"
+      ],
+      "titulo": "Cobertura Solar RJ",
+      "descricao_curta": "Sistema 10kWp premium",
+      "descricao_longa": "<p>Instalação em cobertura no Rio de Janeiro com painéis premium de 21% de eficiência. Sistema inclui monitoramento detalhado e integração com app de consumo.</p>",
+      "potencia": "10 kWp",
+      "tipo": "Residencial",
+      "data": "2023-12-05",
+      "destaques": [
+        "Painéis de alta eficiência",
+        "Design discreto",
+        "Monitoramento em tempo real"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Cobertura%20Solar%20RJ"
+    },
+    {
+      "id": 8,
+      "imagem_principal": "assets/projetos/comercial-03.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/comercial-03-extra1.jpg"
+      ],
+      "titulo": "Hotel Solar Bahia",
+      "descricao_curta": "Sistema 50kWp para hotelaria",
+      "descricao_longa": "<p>Sistema fotovoltaico para hotel 5 estrelas na Bahia. Cobre 70% do consumo das áreas comuns e 30% dos apartamentos, com retorno estimado em 3 anos.</p>",
+      "potencia": "50 kWp",
+      "tipo": "Comercial",
+      "data": "2023-05-15",
+      "destaques": [
+        "Redução de R$15.000/mês",
+        "Diferencial competitivo",
+        "Manutenção preventiva"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Hotel%20Solar%20Bahia"
+    },
+    {
+      "id": 9,
+      "imagem_principal": "assets/projetos/industrial-03.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/industrial-03-extra1.jpg",
+        "assets/projetos/industrial-03-extra2.jpg"
+      ],
+      "titulo": "Distribuidora MG",
+      "descricao_curta": "Sistema 180kWp industrial",
+      "descricao_longa": "<p>Implantação em centro de distribuição com consumo intensivo. Sistema com 360 painéis em estrutura sobre telhado metálico, projetado para ventos de até 120km/h.</p>",
+      "potencia": "180 kWp",
+      "tipo": "Industrial",
+      "data": "2023-04-20",
+      "destaques": [
+        "Economia de R$55.000/mês",
+        "Estrutura reforçada",
+        "Garantia estendida"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Distribuidora%20MG"
+    },
+    {
+      "id": 10,
+      "imagem_principal": "assets/projetos/residencial-04.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/residencial-04-extra1.jpg"
+      ],
+      "titulo": "Condomínio Solar PR",
+      "descricao_curta": "Sistema 15kWp compartilhado",
+      "descricao_longa": "<p>Projeto inovador para condomínio residencial com medição compartilhada. Sistema com 30 painéis distribuídos em telhados comuns, beneficiando 20 unidades.</p>",
+      "potencia": "15 kWp",
+      "tipo": "Residencial",
+      "data": "2023-03-12",
+      "destaques": [
+        "Redução média de 80%",
+        "Rateio proporcional",
+        "Painéis anti-reflexo"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Condomínio%20Solar%20PR"
+    },
+    {
+      "id": 11,
+      "imagem_principal": "assets/projetos/comercial-04.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/comercial-04-extra1.jpg"
+      ],
+      "titulo": "Escritórios Verdes",
+      "descricao_curta": "Sistema 30kWp corporativo",
+      "descricao_longa": "<p>Edifício corporativo com sistema fotovoltaico integrado à arquitetura. Painéis instalados em brise-soleil, gerando energia e sombreamento.</p>",
+      "potencia": "30 kWp",
+      "tipo": "Comercial",
+      "data": "2023-02-28",
+      "destaques": [
+        "Integração arquitetônica",
+        "Certificação LEED",
+        "Monitoramento setorizado"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Escritórios%20Verdes"
+    },
+    {
+      "id": 12,
+      "imagem_principal": "assets/projetos/industrial-04.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/industrial-04-extra1.jpg"
+      ],
+      "titulo": "Cervejaria Solar",
+      "descricao_curta": "Sistema 120kWp industrial",
+      "descricao_longa": "<p>Microcervejaria artesanal com sistema fotovoltaico cobrindo 100% do consumo. Projeto inclui selo 'Energia Verde' para os produtos.</p>",
+      "potencia": "120 kWp",
+      "tipo": "Industrial",
+      "data": "2023-01-15",
+      "destaques": [
+        "Autossuficiência energética",
+        "Marketing sustentável",
+        "Sistema modular"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Cervejaria%20Solar"
+    },
+    {
+      "id": 13,
+      "imagem_principal": "assets/projetos/residencial-05.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/residencial-05-extra1.jpg"
+      ],
+      "titulo": "Chácara Solar GO",
+      "descricao_curta": "Sistema 8kWp off-grid",
+      "descricao_longa": "<p>Propriedade rural sem acesso à rede elétrica. Sistema completo com 16 painéis, banco de baterias e gerador de backup para autonomia total.</p>",
+      "potencia": "8 kWp",
+      "tipo": "Residencial",
+      "data": "2022-12-10",
+      "destaques": [
+        "Sistema isolado (off-grid)",
+        "Autonomia de 3 dias nublados",
+        "Integração com gerador"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Chácara%20Solar%20GO"
+    },
+    {
+      "id": 14,
+      "imagem_principal": "assets/projetos/comercial-05.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/comercial-05-extra1.jpg"
+      ],
+      "titulo": "Posto Solar",
+      "descricao_curta": "Sistema 40kWp para posto",
+      "descricao_longa": "<p>Posto de combustível com sistema fotovoltaico cobrindo iluminação, bombas e loja de conveniência. Projeto inclui proteção contra surtos.</p>",
+      "potencia": "40 kWp",
+      "tipo": "Comercial",
+      "data": "2022-11-20",
+      "destaques": [
+        "Proteção contra surtos",
+        "Redução de 70% na conta",
+        "Manutenção especializada"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Posto%20Solar"
+    },
+    {
+      "id": 15,
+      "imagem_principal": "assets/projetos/industrial-05.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/industrial-05-extra1.jpg"
+      ],
+      "titulo": "Frigorífico Solar",
+      "descricao_curta": "Sistema 250kWp industrial",
+      "descricao_longa": "<p>Frigorífico com alto consumo em refrigeração. Sistema dimensionado para cobrir 60% do consumo, com priorização para as câmaras frias.</p>",
+      "potencia": "250 kWp",
+      "tipo": "Industrial",
+      "data": "2022-10-05",
+      "destaques": [
+        "Economia de R$80.000/mês",
+        "Priorização de cargas",
+        "Sistema trifásico"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Frigorífico%20Solar"
+    },
+    {
+      "id": 16,
+      "imagem_principal": "assets/projetos/residencial-06.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/residencial-06-extra1.jpg"
+      ],
+      "titulo": "Casa de Praia SC",
+      "descricao_curta": "Sistema 6kWp resistente",
+      "descricao_longa": "<p>Residência à beira-mar com sistema projetado para ambiente salino. Painéis e estruturas com tratamento anti-corrosivo e garantia estendida.</p>",
+      "potencia": "6 kWp",
+      "tipo": "Residencial",
+      "data": "2022-09-15",
+      "destaques": [
+        "Materiais resistentes ao sal",
+        "Garantia de 15 anos",
+        "Manutenção simplificada"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Casa%20de%20Praia%20SC"
+    },
+    {
+      "id": 17,
+      "imagem_principal": "assets/projetos/comercial-06.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/comercial-06-extra1.jpg"
+      ],
+      "titulo": "Clínica Médica Solar",
+      "descricao_curta": "Sistema 20kWp para saúde",
+      "descricao_longa": "<p>Clínica médica com sistema fotovoltaico priorizando equipamentos críticos. Projeto inclui no-break para tomadas essenciais.</p>",
+      "potencia": "20 kWp",
+      "tipo": "Comercial",
+      "data": "2022-08-22",
+      "destaques": [
+        "Proteção para equipamentos",
+        "Redução de 75% na conta",
+        "Priorização de cargas"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Clínica%20Médica%20Solar"
+    },
+    {
+      "id": 18,
+      "imagem_principal": "assets/projetos/industrial-06.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/industrial-06-extra1.jpg"
+      ],
+      "titulo": "Mineração Sustentável",
+      "descricao_curta": "Sistema 300kWp industrial",
+      "descricao_longa": "<p>Projeto para mineradora com sistema em área remota. Geração para escritórios, refeitório e parte do processo produtivo.</p>",
+      "potencia": "300 kWp",
+      "tipo": "Industrial",
+      "data": "2022-07-30",
+      "destaques": [
+        "Redução de diesel",
+        "Estrutura reforçada",
+        "Monitoramento remoto"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Mineração%20Sustentável"
+    },
+    {
+      "id": 19,
+      "imagem_principal": "assets/projetos/residencial-07.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/residencial-07-extra1.jpg"
+      ],
+      "titulo": "Sítio Solar MG",
+      "descricao_curta": "Sistema 12kWp rural",
+      "descricao_longa": "<p>Propriedade rural com sistema fotovoltaico para casa, irrigação e ordenha. Projeto inclui proteção para equipamentos rurais.</p>",
+      "potencia": "12 kWp",
+      "tipo": "Residencial",
+      "data": "2022-06-18",
+      "destaques": [
+        "Cobertura para equipamentos",
+        "Proteção contra surtos",
+        "Sistema trifásico"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Sítio%20Solar%20MG"
+    },
+    {
+      "id": 20,
+      "imagem_principal": "assets/projetos/comercial-07.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/comercial-07-extra1.jpg"
+      ],
+      "titulo": "Restaurante Solar",
+      "descricao_curta": "Sistema 15kWp para food",
+      "descricao_longa": "<p>Restaurante com alto consumo em refrigeração e cocção. Sistema dimensionado para cobrir 50% do consumo total.</p>",
+      "potencia": "15 kWp",
+      "tipo": "Comercial",
+      "data": "2022-05-10",
+      "destaques": [
+        "Redução de R$4.500/mês",
+        "Priorização de freezers",
+        "ROI em 3 anos"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Restaurante%20Solar"
+    },
+    {
+      "id": 21,
+      "imagem_principal": "assets/projetos/industrial-07.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/industrial-07-extra1.jpg"
+      ],
+      "titulo": "Logística Solar",
+      "descricao_curta": "Sistema 180kWp logístico",
+      "descricao_longa": "<p>Centro de distribuição com sistema fotovoltaico cobrindo 40% do consumo. Projeto inclui carregadores para empilhadeiras elétricas.</p>",
+      "potencia": "180 kWp",
+      "tipo": "Industrial",
+      "data": "2022-04-05",
+      "destaques": [
+        "Carregadores para empilhadeiras",
+        "Estrutura sobre telhado",
+        "Monitoramento detalhado"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Logística%20Solar"
+    },
+    {
+      "id": 22,
+      "imagem_principal": "assets/projetos/residencial-08.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/residencial-08-extra1.jpg"
+      ],
+      "titulo": "Apartamento Solar",
+      "descricao_curta": "Sistema 3kWp para apartamento",
+      "descricao_longa": "<p>Solução compacta para apartamento em condomínio. Painéis instalados em área comum com acordo de compensação.</p>",
+      "potencia": "3 kWp",
+      "tipo": "Residencial",
+      "data": "2022-03-12",
+      "destaques": [
+        "Solução para apartamentos",
+        "Acordo com condomínio",
+        "Monitoramento via app"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Apartamento%20Solar"
+    },
+    {
+      "id": 23,
+      "imagem_principal": "assets/projetos/comercial-08.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/comercial-08-extra1.jpg"
+      ],
+      "titulo": "Escola Sustentável",
+      "descricao_curta": "Sistema 35kWp educacional",
+      "descricao_longa": "<p>Escola particular com sistema fotovoltaico integrado ao currículo. Projeto inclui monitoramento didático para alunos.</p>",
+      "potencia": "35 kWp",
+      "tipo": "Comercial",
+      "data": "2022-02-28",
+      "destaques": [
+        "Ferramenta educacional",
+        "Redução de 60% na conta",
+        "Visibilidade para a escola"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Escola%20Sustentável"
+    },
+    {
+      "id": 24,
+      "imagem_principal": "assets/projetos/industrial-08.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/industrial-08-extra1.jpg"
+      ],
+      "titulo": "Indústria de Plásticos",
+      "descricao_curta": "Sistema 220kWp industrial",
+      "descricao_longa": "<p>Fábrica de plásticos com sistema fotovoltaico cobrindo 30% do consumo. Projeto prioriza máquinas de sopro e injetoras.</p>",
+      "potencia": "220 kWp",
+      "tipo": "Industrial",
+      "data": "2022-01-15",
+      "destaques": [
+        "Priorização de máquinas",
+        "Economia de R$70.000/mês",
+        "Sistema modular"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Indústria%20de%20Plásticos"
+    },
+    {
+      "id": 25,
+      "imagem_principal": "assets/projetos/residencial-09.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/residencial-09-extra1.jpg"
+      ],
+      "titulo": "Casa Container Solar",
+      "descricao_curta": "Sistema 4.5kWp integrado",
+      "descricao_longa": "<p>Residência container com sistema fotovoltaico integrado ao design. Painéis servem como cobertura e geram energia simultaneamente.</p>",
+      "potencia": "4.5 kWp",
+      "tipo": "Residencial",
+      "data": "2021-12-10",
+      "destaques": [
+        "Integração arquitetônica",
+        "Painéis como cobertura",
+        "Sistema compacto"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Casa%20Container%20Solar"
+    },
+    {
+      "id": 26,
+      "imagem_principal": "assets/projetos/comercial-09.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/comercial-09-extra1.jpg"
+      ],
+      "titulo": "Academia Verde",
+      "descricao_curta": "Sistema 18kWp para fitness",
+      "descricao_longa": "<p>Academia com sistema fotovoltaico cobrindo 70% do consumo. Projeto inclui bicicletas geradoras conectadas ao sistema.</p>",
+      "potencia": "18 kWp",
+      "tipo": "Comercial",
+      "data": "2021-11-20",
+      "destaques": [
+        "Bicicletas geradoras",
+        "Marketing sustentável",
+        "Redução de 65% na conta"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Academia%20Verde"
+    },
+    {
+      "id": 27,
+      "imagem_principal": "assets/projetos/industrial-09.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/industrial-09-extra1.jpg"
+      ],
+      "titulo": "Cerâmica Solar",
+      "descricao_curta": "Sistema 280kWp industrial",
+      "descricao_longa": "<p>Cerâmica com sistema fotovoltaico cobrindo escritórios e parte do processo produtivo. Projeto inclui proteção contra poeira.</p>",
+      "potencia": "280 kWp",
+      "tipo": "Industrial",
+      "data": "2021-10-05",
+      "destaques": [
+        "Proteção contra poeira",
+        "Economia de R$90.000/mês",
+        "Sistema robusto"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Cerâmica%20Solar"
+    },
+    {
+      "id": 28,
+      "imagem_principal": "assets/projetos/residencial-10.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/residencial-10-extra1.jpg"
+      ],
+      "titulo": "Casa Inteligente",
+      "descricao_curta": "Sistema 7kWp automatizado",
+      "descricao_longa": "<p>Residência inteligente com sistema fotovoltaico integrado à automação. Energia priorizada para carros elétricos e sistemas críticos.</p>",
+      "potencia": "7 kWp",
+      "tipo": "Residencial",
+      "data": "2021-09-15",
+      "destaques": [
+        "Integração com automação",
+        "Carregamento de VE",
+        "Monitoramento avançado"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Casa%20Inteligente"
+    },
+    {
+      "id": 29,
+      "imagem_principal": "assets/projetos/comercial-10.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/comercial-10-extra1.jpg"
+      ],
+      "titulo": "Pet Shop Solar",
+      "descricao_curta": "Sistema 12kWp para pets",
+      "descricao_longa": "<p>Pet shop com sistema fotovoltaico cobrindo 100% do consumo. Projeto inclui selo 'Empresa Verde' para atração de clientes.</p>",
+      "potencia": "12 kWp",
+      "tipo": "Comercial",
+      "data": "2021-08-22",
+      "destaques": [
+        "Autossuficiência energética",
+        "Marketing sustentável",
+        "ROI em 2.5 anos"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Pet%20Shop%20Solar"
+    },
+    {
+      "id": 30,
+      "imagem_principal": "assets/projetos/industrial-10.jpg",
+      "imagens_adicionais": [
+        "assets/projetos/industrial-10-extra1.jpg"
+      ],
+      "titulo": "Usina de Reciclagem",
+      "descricao_curta": "Sistema 350kWp industrial",
+      "descricao_longa": "<p>Usina de reciclagem com sistema fotovoltaico cobrindo 40% do consumo. Projeto combina sustentabilidades energética e ambiental.</p>",
+      "potencia": "350 kWp",
+      "tipo": "Industrial",
+      "data": "2021-07-30",
+      "destaques": [
+        "Combinação de sustentabilidades",
+        "Economia de R$120.000/mês",
+        "Visibilidade institucional"
+      ],
+      "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Usina%20de%20Reciclagem"
+    }
+  ]
+}
