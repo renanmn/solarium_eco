@@ -12,11 +12,9 @@
       "descricao_longa": "<p>Processo da instalação de uma Usina de 34 kWp no Colégio Leme, em Criciúma (SC).</p>",
       "potencia": "34 kWp",
       "tipo": "Comercial",
-      "data": "2023-11-15",
+      "data": "2020-03-21",
       "destaques": [
-        "15 painéis de última geração",
-        "Microinversores para sombreamento",
-        "Integração com automação"
+        "85 painéis de 400 w"
       ],
       "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Residência%20Alphaville"
     },
@@ -31,12 +29,10 @@
       "descricao_curta": "Sistema 27.54Wp para comércio",
       "descricao_longa": "<p>Processo da instalação de uma Usina de 27,54 kWp na JN Implementos, localizada em Pescaria Brava (SC).</p>",
       "potencia": "27,54 kWp",
-      "tipo": "Comercial",
-      "data": "2023-09-22",
+      "tipo": "Industrial",
+      "data": "2021-02-16",
       "destaques": [
-        "Redução de R$8.000/mês",
-        "ROI em 4 anos",
-        "Sistema expansível"
+        "81 placas de 340 w"
       ],
       "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Supermercado%20Verde"
     },
@@ -50,13 +46,11 @@
       "titulo": "Usina Residencial",
       "descricao_curta": "Sistema 18.4kWp industrial",
       "descricao_longa": "<p>Processo da instalação de uma Usina residencial de 18,4  kWp.</p>",
-      "potencia": "150 kWp",
+      "potencia": "18.4 kWp",
       "tipo": "Residencial",
-      "data": "2023-07-10",
+      "data": "2020-09-10",
       "destaques": [
-        "Economia de R$35.000/mês",
-        "Estrutura anti-corrosiva",
-        "Monitoramento remoto"
+  
       ],
       "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Indústria%20Têxtil%20Solar"
     },
@@ -71,12 +65,10 @@
       "descricao_curta": "Sistema 40kWp",
       "descricao_longa": "<p>Processo da instalação de Usina de 40 kWp na Bebidas Nuernberg, localizada em Criciúma (SC).</p>",
       "potencia": "40 kWp",
-      "tipo": "Industrial",
-      "data": "2023-10-05",
+      "tipo": "Comercial",
+      "data": "2021-02-07",
       "destaques": [
-        "Backup para quedas de energia",
-        "Autonomia de 12h",
-        "Integração com gerador"
+        "Primeira a utilizar placa de 500 w na região"
       ],
       "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Casa%20Sustentável%20SP"
     },
@@ -92,11 +84,9 @@
       "descricao_longa": "<p>Processo da instalação de Usina de 50 kWp localizada em Criciúma (SC), para locação.</p>",
       "potencia": "50 kWp",
       "tipo": "Comercial",
-      "data": "2023-08-18",
+      "data": "2021-03-25",
       "destaques": [
-        "Redução de 40% no condomínio",
-        "Marketing sustentável",
-        "Manutenção programada"
+        "Primeira usina de locação/investimento em SC"
       ],
       "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Shopping%20Solar"
     },
@@ -108,15 +98,13 @@
         "assets/projetos/projeto6.2.png"
       ],
       "titulo": "Pomar de Laranjas",
-      "descricao_curta": "Sistema 51kWp industrial",
+      "descricao_curta": "Sistema 51kWp comercial",
       "descricao_longa": "<p>Processo da instalação de uma Usina de 51 kWp, localizada em Balneário Rincão (SC), utilizada para o fornecimento de energia elétrica que alimenta um motor de irrigação de um pomar de laranjas.</p>",
       "potencia": "51kWp",
-      "tipo": "Industrial",
-      "data": "2023-06-30",
+      "tipo": "Comercial",
+      "data": "2021-06-23",
       "destaques": [
-        "Geração de 30.000 kWh/mês",
-        "Sombra para estacionamento",
-        "Projeto P&D"
+        
       ],
       "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Fábrica%20de%20Alimentos"
     },
@@ -130,13 +118,11 @@
       "titulo": "Residencial Cabo Jeferson",
       "descricao_curta": "Sistema como forma de agradecimento",
       "descricao_longa": "<p>Instalação completa do kit doado à família do Cabo Jeferson Esmeraldino, como forma de agradecimento por estar em frente ao combate do assalto no Banco do Brasil em Criciúma (2019). Agradecemos aos nossos parceiros DJS na figura do engenheiro Djalma; Dinho Soluções Elétricas representada por Alecsandro e Carlos Daros; bem como, agradecemos a Elgin SA, na figura do representante Maicon que nos ajudaram nessa empreitada.</p>",
-      "potencia": "-",
+      "potencia": "4 kWp",
       "tipo": "Residencial",
-      "data": "2023-12-05",
+      "data": "2022-12-02",
       "destaques": [
-        "Painéis de alta eficiência",
-        "Design discreto",
-        "Monitoramento em tempo real"
+        "Painéis doados ao Cabo Esmeraldino"
       ],
       "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Cobertura%20Solar%20RJ"
     },
@@ -151,11 +137,9 @@
       "descricao_longa": "<p>Usina solar de 88,50 kWp para locação em fase final em Criciúma SC.</p>",
       "potencia": "88.50 kWp",
       "tipo": "Comercial",
-      "data": "2023-05-15",
+      "data": "2022-09-27",
       "destaques": [
-        "Redução de R$15.000/mês",
-        "Diferencial competitivo",
-        "Manutenção preventiva"
+        "Usina de locação/investimento em SC"
       ],
       "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Hotel%20Solar%20Bahia"
     },
@@ -169,11 +153,8 @@
       "descricao_longa": "<p>Usina solar com 17,60 kWp entregue em Pescaria Brava SC.</p>",
       "potencia": "17.60 kWp",
       "tipo": "Residencial",
-      "data": "2023-04-20",
+      "data": "2023-12-28",
       "destaques": [
-        "Economia de R$55.000/mês",
-        "Estrutura reforçada",
-        "Garantia estendida"
       ],
       "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Distribuidora%20MG"
     },
@@ -183,16 +164,14 @@
       "imagens_adicionais": [
         
       ],
-      "titulo": "Usina Solar",
+      "titulo": "Usina em Sítio",
       "descricao_curta": "Usina solar com potência de 50kWp em Nova Veneza - SC",
       "descricao_longa": "<p>Usina solar com potência de 50kWp em Nova Veneza - SC</p>",
       "potencia": "50 kWp",
-      "tipo": "Comercial",
-      "data": "2023-03-12",
+      "tipo": "Residencial",
+      "data": "2022-08-13",
       "destaques": [
-        "Redução média de 80%",
-        "Rateio proporcional",
-        "Painéis anti-reflexo"
+        
       ],
       "whatsapp_link": "https://wa.me/5511999999999?text=Gostaria%20de%20saber%20sobre%20o%20projeto%20Condomínio%20Solar%20PR"
     }
