@@ -349,7 +349,7 @@ function openModal(index) {
             <img src='${projeto.imagem}' alt='${projeto.titulo}' class='w-full h-auto mb-4 rounded'>
             <h2 class='text-2xl font-bold mb-2'>${projeto.titulo}</h2>
             <p class='mb-4'>${projeto.descricao}</p>
-            <a href='https://wa.me/5548999999999?text=Olá! Gostaria de mais informações sobre o projeto ${encodeURIComponent(projeto.titulo)}.'
+            <a href='https://wa.me/5548988612504?text=Olá! Gostaria de mais informações sobre o projeto ${encodeURIComponent(projeto.titulo)}.'
                target='_blank'
                class='inline-block mt-4 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded'>
                 Falar no WhatsApp
