@@ -551,46 +551,30 @@
 
                 <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
                     <div class="bg-white rounded-lg p-8 shadow-lg">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Solicite seu Orçamento</h3>
-                        <form id="contact-form" class="space-y-6">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label for="nome" class="block text-sm font-medium text-gray-700 mb-2">Nome Completo *</label>
-                                    <input type="text" id="nome" name="nome" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solarium-green focus:border-transparent transition-colors">
-                                </div>
-                                <div>
-                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">E-mail *</label>
-                                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solarium-green focus:border-transparent transition-colors">
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div>
-                                    <label for="telefone" class="block text-sm font-medium text-gray-700 mb-2">Telefone</label>
-                                    <input type="tel" id="telefone" name="telefone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solarium-green focus:border-transparent transition-colors">
-                                </div>
-                                <div>
-                                    <label for="whatsapp" class="block text-sm font-medium text-gray-700 mb-2">WhatsApp *</label>
-                                    <input type="tel" id="whatsapp" name="whatsapp" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solarium-green focus:border-transparent transition-colors">
-                                </div>
-                            </div>
-                            <div>
-                                <label for="tipo-projeto" class="block text-sm font-medium text-gray-700 mb-2">Tipo de Projeto</label>
-                                <select id="tipo-projeto" name="tipo_projeto" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solarium-green focus:border-transparent transition-colors">
-                                    <option value="">Selecione</option>
-                                    <option value="residencial">Residencial</option>
-                                    <option value="comercial">Comercial</option>
-                                    <option value="industrial">Industrial</option>
-                                    <option value="outro">Outro</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="mensagem" class="block text-sm font-medium text-gray-700 mb-2">Mensagem *</label>
-                                <textarea id="mensagem" name="mensagem" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-solarium-green focus:border-transparent transition-colors"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-solarium-green text-white px-6 py-3 rounded-lg font-bold text-lg hover:bg-solarium-dark transition-colors duration-300">
-                                Enviar Mensagem
-                            </button>
-                        </form>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Solicite seu Orçamento</h3>
+                    <form id="whatsapp-form" class="space-y-6" onsubmit="enviarWhatsApp(event)">
+                        <div>
+                        <label for="nome" class="block text-sm font-medium text-gray-700 mb-2">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent transition-colors">
+                        </div>
+                        <div>
+                        <label for="tipo-projeto" class="block text-sm font-medium text-gray-700 mb-2">Tipo de Projeto *</label>
+                        <select id="tipo-projeto" name="tipo_projeto" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent transition-colors">
+                            <option value="">Selecione</option>
+                            <option value="residencial">Residencial</option>
+                            <option value="comercial">Comercial</option>
+                            <option value="industrial">Industrial</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                        </div>
+                        <div>
+                        <label for="descricao" class="block text-sm font-medium text-gray-700 mb-2">Descrição *</label>
+                        <textarea id="descricao" name="descricao" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent transition-colors"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-green-600 text-white px-6 py-3 rounded-lg font-bold text-lg hover:bg-green-700 transition-colors duration-300">
+                        Enviar pelo WhatsApp
+                        </button>
+                    </form>
                     </div>
 
                     <div class="space-y-8">
@@ -630,7 +614,7 @@
                                     </div>
                                     <div>
                                         <h4 class="font-bold text-gray-800">E-mail</h4>
-                                        <p class="text-gray-600">contato@solariumeco.com.br</p>
+                                        <p class="text-gray-600">financeiro@solariumeco.com.br</p>
                                     </div>
                                 </div>
                             </div>

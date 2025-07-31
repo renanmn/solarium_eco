@@ -650,3 +650,17 @@ document.addEventListener('DOMContentLoaded', () => {
         initGallery();
     }
 });
+
+ function enviarWhatsApp(event) {
+    event.preventDefault();
+
+    const nome = document.getElementById('nome').value.trim();
+    const tipoProjeto = document.getElementById('tipo-projeto').value.trim();
+    const descricao = document.getElementById('descricao').value.trim();
+
+    const numero = '48988612504';
+    const mensagem = `Olá, me chamo ${nome} e gostaria de realizar um orçamento de uma instalação ${tipoProjeto}. Aqui está uma breve descrição: ${descricao}`;
+
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank');
+  }
